@@ -36,3 +36,7 @@ const movieSchema = new mongoose.Schema({
         required: [true, "Release year cannot be empty"]
     },
 })
+
+const Movie = mongoose.model('Movie', movieSchema)
+
+module.exports = Movie;
