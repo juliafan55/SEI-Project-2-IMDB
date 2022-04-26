@@ -17,16 +17,15 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-// router.get('/:reviewId', async (req, res, next) => {
-//     try {
-//         const foundReview = await db.Review.findById(req.params.reviewId).populate('movie')
-//         res.render('/movies/s')
-//     } catch (error) {
-//         console.log(error)
-//         req.error = error;
-//         return next();  
-//     }
-// })
-
+router.delete('/:reviewId', async (req, res, next) => {
+    try {
+        const foundReview = await db.Review.findByIdAndDelete(req.params.reviewId)
+        res.redirect(`/movies/${foundReview.movie}`)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();  
+    }
+})
 
 module.exports = router
