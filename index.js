@@ -2,9 +2,11 @@ const express = require('express')
 
 const app = express();
 
+require('./config/db.connection');
+
 const methodOverride = require('method-override')
 
-const PORT = 4000;
+const PORT = 3000;
 
 app.set('view engine', 'ejs')
 
