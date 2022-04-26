@@ -29,4 +29,39 @@ router.delete('/:reviewId', async (req, res, next) => {
     }
 })
 
+router.get('/:reviewId/edit', async (req, res, next) => {
+    try {
+        const updatedComment = await db.Review.findByIdAndUpdate(req.params.reviewId)
+        const context = {
+            comment: updatedComment
+        }
+        // console.log("updated comment", updatedComment)
+        return res.render("./reviews/edit.ejs", context)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();  
+    }
+})
+
+// router.get('/:reviewId/edit', (req, res) => {
+//     res.render('./reviews/edit.ejs')
+// })
+
+router.put('/:reviewId', async (req, res, next) => {
+    try {
+        console.log("put route", req.body)
+        const updatedReview = await db.Review.findByIdAndUpdate(req.params.reviewId, {
+            rating: req.body.rating,
+            comment: req.body.comment,
+        })
+        // console.log("put updated review", updatedReview)
+        res.redirect(`/movies/${updatedReview.movie}`)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();  
+    }
+})
+
 module.exports = router
