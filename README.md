@@ -32,11 +32,12 @@ Review
 Rating 10/10
 Comment content
 
-MVP Goals
-Ability to add new movies
-Ability to edit/update the movies
-Ability to delete movies
-Ability to add comments
+## USER STORIES:
+* Ability to add new movies
+* Ability to edit/update the movies
+* Ability to delete movies
+* Ability to add comments
+* Ability to add ratings to movies 
 
 Stretch Goals
 Rate each movie based on the review avg.
