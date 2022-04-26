@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Movie</title>
+</head>
+<body>
+    <h1>Create a new movie!</h1>
+    <form action = "/movies" method = "POST">
+        <div>
+            <label for = "title">Movie Title:</label>
+            <input id = "title" name = "title" type = "text" value = "write title here"/>
+        </div>
+        <div>
+            <label for = "poster">Movie poster:</label>
+            <input id = "poster" name = "poster" type = "text" value = "poster image adress here"/>
+        </div>
+        <div>
+            <label for = "director">Movie director:</label>
+            <input id = "director" name = "director" type = "text" value = "Director name here"/>
+        </div>
+        <div>
+            <label for = "synopsis">Movie synopsis:</label>
+            <input id = "synopsis" name = "synopsis" type = "text" value = "movie synopsis here"/>
+        </div>
+        <div>
+            <label for = "releaseMonth">Release Month:</label>
+            <input id = "releaseMonth" name = "releaseMonth" type = "number"/>
+        </div>
+        <div>
+            <label for = "releaseDate">Release Day:</label>
+            <input id = "releaseDate" name = "releaseDate" type = "number"/>
+        </div>
+    </form>
+</body>
+</html>

@@ -12,7 +12,9 @@ const movieSchema = new mongoose.Schema({
     cast: [{
         type: String,
     }],
-    synopsis: String,
+    synopsis: {
+        type: String,
+    },
     director: {
         type: String,
         required: [true, "Director cannot be empty"]
