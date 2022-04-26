@@ -19,6 +19,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/movies', controllers.movies)
+app.use('/reviews', controllers.reviews)
 
 
 app.get('/', (request, response) => response.send('Welcome to IMDB'))

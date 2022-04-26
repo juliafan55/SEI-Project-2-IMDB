@@ -12,5 +12,21 @@
     <p> Directed by: <%=oneMovie.director %></p>
     <p> Synopsis: <%=oneMovie.synopsis %></p>
     <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p>
+
+    <div class = "reviews">
+        <h2>Create a Review</h2>
+        <form action = "/reviews" method = "POST">
+            <input name = "rating" type = "number" />
+            <input name = "comment" type = "text" />
+            <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
+            <input type = "submit" value = "post review" />
+        </form>
+    </div>
+    <div class = "display-reviews">
+        <% for (let i = 0; i<reviews.length; i++) { %>
+            <h3>Rating: <%=reviews[i].rating%></h3>
+            <p><%=reviews[i].comment%></p>
+        <% } %>
+    </div>
 </body>
 </html>

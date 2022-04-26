@@ -38,8 +38,10 @@ router.post('/', async (req, res, next)=>{
 router.get("/:id", async (req, res, next) => {
     try {
         const foundMovie = await db.Movie.findById(req.params.id)
+        const allReviews = await db.Review.find({movie: req.params.id})
         const context = {
-            oneMovie: foundMovie
+            oneMovie: foundMovie,
+            reviews: allReviews
         }
         return res.render("show.ejs", context)
     } catch (error) {
