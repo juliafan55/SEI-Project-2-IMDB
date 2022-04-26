@@ -26,8 +26,8 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res, next)=>{
     try{
         const newMovie = await db.Movie.create(req.body);
-        console.log(`the new movie is ${newMovie}`)
-        // return res.redirect('/movies')
+        // console.log(`the new movie is ${newMovie}`)
+        return res.redirect('/movies')
     } catch (error) {
         console.log(error)
         req.error = error;

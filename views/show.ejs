@@ -7,8 +7,10 @@
     <title>Movie | <%=oneMovie.title%></title>
 </head>
 <body>
-    <h1> Movie Information</h1>
+    <h1> <%=oneMovie.title%></h1>
     <img src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
-    <p> <%=oneMovie.director %></p>
+    <p> Directed by: <%=oneMovie.director %></p>
+    <p> Synopsis: <%=oneMovie.synopsis %></p>
+    <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p>
 </body>
 </html>
