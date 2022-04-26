@@ -49,5 +49,30 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
+router.get('/:id/edit', async (req, res, next) => {
+    try{
+        const updatedMovie = await db.Movie.findByIdAndUpdate(req.params.id, req.body)
+        const context = {
+            movie: updatedMovie
+        }
+        return res.render('edit.ejs', context)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();   
+    }
+})
+
+router.put('/:id', async (req, res, next) => {
+    try{
+        const updatedMovie = await db.Movie.findByIdAndUpdate(req.params.id, req.body)
+        return res.redirect(`/movies/${updatedMovie._id}`)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();   
+    }
+})
+
 
 module.exports = router

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%=movie.title%></title>
+</head>
+<body>
+    <h1>Edit <%=movie.title%></h1>
+    <form action = "/movies/<%=movie._id%>?_method=PUT" method = "POST">
+        <div>
+            <label for = "title">Movie Title:</label>
+            <input id = "title" name = "title" type = "text" value = "<%=movie.title%>"/>
+        </div>
+        <div>
+            <label for = "poster">Movie poster:</label>
+            <input id = "poster" name = "poster" type = "text" value = "<%=movie.poster%>"/>
+        </div>
+        <div>
+            <label for = "director">Movie director:</label>
+            <input id = "director" name = "director" type = "text" value = "<%=movie.director%>"/>
+        </div>
+        <div>
+            <label for = "synopsis">Movie synopsis:</label>
+            <input id = "synopsis" name = "synopsis" type = "text" value = "<%=movie.synopsis%>"/>
+        </div>
+        <div>
+            <label for = "releaseMonth">Release Month:</label>
+            <input id = "releaseMonth" name = "releaseMonth" type = "number" value = "<%=movie.releaseMonth%>"/>
+        </div>
+        <div>
+            <label for = "releaseDate">Release Day:</label>
+            <input id = "releaseDate" name = "releaseDate" type = "number" value = "<%=movie.releaseDate%>"/>
+        </div>
+        <div>
+            <label for = "releaseYear">Release Year:</label>
+            <input id = "releaseYear" name = "releaseYear" type = "number" value = "<%=movie.releaseYear%>"/>
+        </div>
+        <input type="submit" value="Edit <%=movie.title%>">
+    </form>
+</body>
+</html>
