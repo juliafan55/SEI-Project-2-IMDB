@@ -5,8 +5,16 @@ const router = express.Router()
 const db = require('../models')
 
 //created a "/movies" route which will display movies
-router.get('/', (req, res) => {
-    res.send('Hitting movies route')
+router.get('/', async (req, res, next) => {
+    try {
+        const movies = await db.Movie.find({})
+        const context = { movies }
+        return res.render("index.ejs", context)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();  
+    }
 })
 
 //creating a route to take user to a "new" page that will allow them to make a new movie
@@ -24,6 +32,20 @@ router.post('/', async (req, res, next)=>{
         console.log(error)
         req.error = error;
         return next();     
+    }
+})
+
+router.get("/:id", async (req, res, next) => {
+    try {
+        const foundMovie = await db.Movie.findById(req.params.id)
+        const context = {
+            oneMovie: foundMovie
+        }
+        return res.render("show.ejs", context)
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();    
     }
 })
 
