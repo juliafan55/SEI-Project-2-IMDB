@@ -53,7 +53,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get('/:id/edit', async (req, res, next) => {
     try{
-        const updatedMovie = await db.Movie.findByIdAndUpdate(req.params.id, req.body)
+        const updatedMovie = await db.Movie.findByIdAndUpdate(req.params.id)
         const context = {
             movie: updatedMovie
         }
