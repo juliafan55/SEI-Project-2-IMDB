@@ -26,6 +26,9 @@
         <% for (let i = 0; i<reviews.length; i++) { %>
             <h3>Rating: <%=reviews[i].rating%></h3>
             <p><%=reviews[i].comment%></p>
+            <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
+            <input type="submit" value="delete review" />
+            </form>
         <% } %>
     </div>
 </body>

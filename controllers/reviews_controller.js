@@ -21,6 +21,7 @@ router.delete('/:reviewId', async (req, res, next) => {
     try {
         const foundReview = await db.Review.findByIdAndDelete(req.params.reviewId)
         res.redirect(`/movies/${foundReview.movie}`)
+        console.log(foundReview.movie)
     } catch (error) {
         console.log(error)
         req.error = error;
