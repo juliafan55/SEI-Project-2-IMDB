@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    userName: {
+    user: {
         type: String,
         required: [true, "User name cannot be empty"],
         unique: true,
