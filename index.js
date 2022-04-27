@@ -37,7 +37,7 @@ app.use(
 );
 app.use('/movies', controllers.movies)
 app.use('/reviews', controllers.reviews)
-
+app.use("/", controllers.auth)
 
 app.get('/', (request, response) => response.send('Welcome to IMDB'))
 
