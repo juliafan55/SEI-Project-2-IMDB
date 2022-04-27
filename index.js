@@ -2,6 +2,10 @@ const express = require('express')
 
 const app = express();
 
+const session = require ("express-session");
+
+const MongoStore = require ("connect-mongo");
+
 const controllers = require('./controllers')
 
 require('./config/db.connection');
@@ -18,6 +22,19 @@ app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({ extended: false }))
 
+
+app.use(
+    session({
+        // where to store the sessions in mongodb
+        store: MongoStore.create({ mongoUrl: process.env.Mongodb_url }),
+        secret: "super secret",
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2, // two weeks
+        },
+    })
+);
 app.use('/movies', controllers.movies)
 app.use('/reviews', controllers.reviews)
 
