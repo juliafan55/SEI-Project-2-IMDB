@@ -9,11 +9,10 @@
             <% const movie = movies[i] %>
             <div class="movieGrid">
             <img src="<%= movie.poster %>" alt="Poster image" />
-            
-            <a href="/movies/<%=movie._id%>"><%=movie.title%></a>
-        
+            <br>
+            <a class = "title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
+            </div>
        <% } %>
-        </div>
     </div>
 
 </body>
