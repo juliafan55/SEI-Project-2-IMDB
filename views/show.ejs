@@ -7,11 +7,16 @@
     <title>Movie | <%=oneMovie.title%></title>
 </head>
 <body>
+    <%-include ("partials/nav.ejs")%>
     <h1> <%=oneMovie.title%></h1>
     <img src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
     <p> Directed by: <%=oneMovie.director %></p>
     <p> Synopsis: <%=oneMovie.synopsis %></p>
     <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p>
+    
+    <div class = "edit">
+        <a href = "/movies/<%=oneMovie._id%>/edit">Edit <%=oneMovie.title%></a>
+    </div>
 
     <div class = "reviews">
         <h2>Create a Review</h2>
