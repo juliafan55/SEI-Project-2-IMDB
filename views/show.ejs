@@ -20,16 +20,23 @@
 
     <div class = "reviews">
         <h2>Create a Review</h2>
-        <form action = "/reviews" method = "POST">
-            <input name = "rating" type = "number" />
-            <input name = "comment" type = "text" />
-            <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
-            <input type = "submit" value = "post review" />
-        </form>
+        <% if (user) { %>
+            <p>Is logged in</p>
+            <form action = "/reviews" method = "POST">
+                <input name = "rating" type = "number" />
+                <input name = "comment" type = "text" />
+                <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
+                <input type = "hidden" name = "user" value = "<%=user._id%>"/>
+                <input type = "submit" value = "post review" />
+            </form>
+            <% } %>
     </div>
     <div class = "display-reviews">
         <% for (let i = 0; i<reviews.length; i++) { %>
-            <h3>Rating: <%=reviews[i].rating%></h3>
+            <h3>
+                <%=user.user%>'s
+                Rating: <%=reviews[i].rating%>
+            </h3>
             <p><%=reviews[i].comment%></p>
             <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
             <input type="submit" value="delete review" />

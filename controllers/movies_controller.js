@@ -41,8 +41,10 @@ router.get("/:id", async (req, res, next) => {
         const allReviews = await db.Review.find({movie: req.params.id})
         const context = {
             oneMovie: foundMovie,
-            reviews: allReviews
+            reviews: allReviews,
+            // userId: req.session.currentUser?req.session.currentUser.id: false
         }
+        console.log("current user:", req.session.currentUser)
         return res.render("show.ejs", context)
     } catch (error) {
         console.log(error)
