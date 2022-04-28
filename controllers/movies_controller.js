@@ -51,6 +51,8 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
+
+
 router.get('/:id/edit', async (req, res, next) => {
     try{
         const updatedMovie = await db.Movie.findByIdAndUpdate(req.params.id)
@@ -64,6 +66,24 @@ router.get('/:id/edit', async (req, res, next) => {
         return next();   
     }
 })
+
+
+
+router.delete('/:id', async (req,res, next)=>{
+    try {
+        const deletedMovie = await db.Movie.findByIdAndDelete(req.params.id);
+        const deletedReviews = await db.Review.deleteMany({movie: req.params.id})
+        // console.log(deletedReviews);
+        return res.redirect('/movies')
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+})
+
+
+
 
 router.put('/:id', async (req, res, next) => {
     try{

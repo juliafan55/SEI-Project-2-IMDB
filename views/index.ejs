@@ -12,6 +12,11 @@
             <br>
             <a class = "title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
             </div>
+            <div>
+                <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
+                    <input type="submit" value="Delete Movie"/>
+                </form>
+            </div>
        <% } %>
     </div>
 
