@@ -34,10 +34,11 @@
     <div class = "display-reviews">
         <% for (let i = 0; i<reviews.length; i++) { %>
             <h3>
+                User name : <%= reviews[i].user.user%>
                 Rating: <%=reviews[i].rating%>
             </h3>
             <p><%=reviews[i].comment%></p>
-            <% if (user) { %>
+            <% if (user.user == reviews[i].user.user) { %>
             <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
             <input type="submit" value="delete review" />
             <a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review</a>

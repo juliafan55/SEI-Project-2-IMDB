@@ -38,13 +38,13 @@ router.post('/', async (req, res, next)=>{
 router.get("/:id", async (req, res, next) => {
     try {
         const foundMovie = await db.Movie.findById(req.params.id)
-        const allReviews = await db.Review.find({movie: req.params.id})
+        const allReviews = await db.Review.find({ movie: req.params.id }).populate("user")
         const context = {
             oneMovie: foundMovie,
             reviews: allReviews,
             // userId: req.session.currentUser?req.session.currentUser.id: false
         }
-        console.log("current user:", req.session.currentUser)
+        // console.log("current user:", req.session.currentUser)
         return res.render("show.ejs", context)
     } catch (error) {
         console.log(error)
