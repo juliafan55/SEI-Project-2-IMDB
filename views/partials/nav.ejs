@@ -1,9 +1,11 @@
 <nav class="navbar">
-  <div class = "nav">
-      <a href="/Register">Register | </a> 
-      <a href="/login">Log-in | </a>
-      <a href="/movies">All Movies | </a>
-      <a href="/movies/new">Create Movie | </a>
-      <a href = "/logout">Logout</a>
+    <div class="navbar-menu navbar-end">
+      <% if (user) { %>
+          <p class="navbar-item"><%= user.user %></p>
+      <% } %>
+      <!-- routes -->
+      <% if (routes) { %> <% routes.forEach((route) => { %>
+          <a class="navbar-item" href="<%= route.href %>"> <%= route.title %> </a>
+      <% }) %> <% } %>
   </div>
 </nav>

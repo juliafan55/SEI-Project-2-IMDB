@@ -8,6 +8,8 @@ const MongoStore = require ("connect-mongo");
 
 const controllers = require('./controllers')
 
+const navLinks = require('./navLinks');
+
 require('./config/db.connection');
 
 const methodOverride = require('method-override')
@@ -35,6 +37,14 @@ app.use(
         },
     })
 );
+
+app.use(navLinks)
+
+app.use(function (req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+  });
+
 app.use('/movies', controllers.movies)
 app.use('/reviews', controllers.reviews)
 app.use("/", controllers.auth)
