@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie | <%=oneMovie.title%></title>
-</head>
+    <%-include ("partials/head.ejs", { pageName : "Movie Page" })%>
 <body>
     <%-include ("partials/nav.ejs")%>
-    <h1> <%=oneMovie.title%></h1>
-    <img src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
-    <p> Directed by: <%=oneMovie.director %></p>
-    <p> Synopsis: <%=oneMovie.synopsis %></p>
-    <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p>
-    
-    <div class = "edit">
-        <a href = "/movies/<%=oneMovie._id%>/edit">Edit <%=oneMovie.title%></a>
+    <div class="showContainer">
+        <h1 class="showTitle"> <%=oneMovie.title%></h1>
+        <img src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
+        <div class="showInfo">
+            <p> Directed by: <%=oneMovie.director %></p> <br>
+            <p> Synopsis: <%=oneMovie.synopsis %></p> <br>
+            <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p> <br>
+        </div>
     </div>
+    
+ 
+        <a class = "edit" href="/movies/<%=oneMovie._id%>/edit">Edit <%=oneMovie.title%></a>
 
-    <div class = "reviews">
-        <h2>Create a Review</h2>
+    <div class = "reviewContainer">
+        <h2>Add Your Review</h2>
         <% if (user) { %>
-            <p>Is logged in</p>
             <form action = "/reviews" method = "POST">
+                <label> Rate this movie out of 10: </label> 
                 <input name = "rating" type = "number" />
+                <label> Add Your Review: </label>
                 <input name = "comment" type = "text" />
                 <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
                 <input type = "hidden" name = "user" value = "<%=user.id%>"/>
@@ -31,6 +30,7 @@
             </form>
             <% } %>
     </div>
+
     <div class = "display-reviews">
         <% for (let i = 0; i<reviews.length; i++) { %>
             <h3>
@@ -45,7 +45,7 @@
             </form>
             <% }%>
         <% } %>
-
     </div>
+
 </body>
 </html>

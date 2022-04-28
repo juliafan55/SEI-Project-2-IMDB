@@ -1,84 +1,7 @@
-/* html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+/* font imports */
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+*,
+h1 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -86,45 +9,104 @@ video {
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
-} */
-
-.movieGrid img {
-  display: inline-block;
-  background: darkblue;
-  padding: 10px;
-  height: 200px;
-  border: 5px solid red
 }
+
 body {
-  background-color: forestgreen;
-  display: block;
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
+  background-color: #252627;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
 }
 
-.title {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 25px;
-}
-
-img {
-  height: 25vh;
-}
-
-/* .movieContainer {
+/* index page */
+.allMovies {
   display: grid;
-  grid-template-columns: repeat(3, 30%);
-  grid-template-rows: repeat(3, 30%);
-  grid-gap: 25% 3%;
+  border: solid 1px blue;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   text-align: center;
-  margin: 40px;
-} */
+  grid-gap: 2% 2%;
+}
 
+.movieGrid {
+  border: solid 1px red;
+}
 
-/* .movieGrid {
-  display: grid:
-  padding: 10px;
-} */
+.moviGrid img {
+  width: 100%;
+  height: 100%;
+}
+
+.movieGrid a {
+  color: #d3d4d9;
+}
+
+.indexTitle {
+  font-size: 70px;
+  color: #bb0a21;
+  text-align: center;
+  font-family: "Bangers", cursive;
+}
+
+.movieContainer {
+  margin: 50px;
+}
+
+/* nav bar styling */
+.navbar {
+  background-color: #252627;
+  position: absolute;
+  width: 100%;
+  padding: 15px;
+}
+
+.navbar a,
+p {
+  color: #d3d4d9;
+  display: inline-flex;
+}
+
+.username {
+  position: relative;
+  left: 20px;
+}
+
+.controls {
+  top: 0px;
+  position: relative;
+  left: 700px;
+}
+
+/* show page styling */
+.showTitle {
+  font-size: 70px;
+  color: #bb0a21;
+  text-align: center;
+}
+
+.showContainer {
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.showContainer img {
+  max-height: 50vh;
+  max-width: 50vw;
+}
+
+.edit {
+  text-decoration: none;
+  color: #d3d4d9;
+}
+
+.reviewContainer {
+}
+
+/* styling resets */
+a {
+  text-decoration: none;
+}
