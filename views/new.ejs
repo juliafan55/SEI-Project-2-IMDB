@@ -3,22 +3,23 @@
     <%-include ("partials/head.ejs", { pageName : "Add New Movie" })%>
 <body>
     <%-include ("partials/nav.ejs")%>
-    <h1>Create a new movie!</h1>
+    <h1 class="new-title">Add a New Movie!</h1>
     <form action = "/movies" method = "POST">
+    <div class="add-new-movie">
         <div>
             <label for = "title">Movie Title:</label>
             <input id = "title" name = "title" type = "text" value = "write title here"/>
         </div>
         <div>
-            <label for = "poster">Movie poster:</label>
+            <label for = "poster">Movie Poster:</label>
             <input id = "poster" name = "poster" type = "text" value = "poster image adress here"/>
         </div>
         <div>
-            <label for = "director">Movie director:</label>
-            <input id = "director" name = "director" type = "text" value = "Director name here"/>
+            <label for = "director">Movie Director:</label>
+            <input id = "director" name = "director" type = "text" value = "director's name here"/>
         </div>
         <div>
-            <label for = "synopsis">Movie synopsis:</label>
+            <label for = "synopsis">Movie Synopsis:</label>
             <input id = "synopsis" name = "synopsis" type = "text" value = "movie synopsis here"/>
         </div>
         <div>
@@ -34,10 +35,10 @@
             <input id = "releaseYear" name = "releaseYear" type = "number"/>
         </div>
         <div>
-            <%console.log(user)%>
             <input id = "user" type='hidden' name = 'user' value = "<%=user.id%>" />
         </div>
-        <input type="submit" value="Create new Movie">
+        <input class ="create-new-button" type="submit" value="Create new Movie">
     </form>
+</div>
 </body>
 </html>

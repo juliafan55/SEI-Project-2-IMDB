@@ -3,45 +3,49 @@
     <%-include ("partials/head.ejs", { pageName : "Movie Page" })%>
 <body>
     <%-include ("partials/nav.ejs")%>
-    <div class="showContainer">
-        <h1 class="showTitle"> <%=oneMovie.title%></h1>
-        <img src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
-        <div class="showInfo">
-            <p> Directed by: <%=oneMovie.director %></p> <br>
-            <p> Synopsis: <%=oneMovie.synopsis %></p> <br>
-            <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p> <br>
+    <div class="show-container">
+        <h1 class="show-title"> <%=oneMovie.title%></h1>
+        <img class="show-img" src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
+        <div class="show-info">
+            <p><b>Directed by: </b> <%=oneMovie.director %></p> <br>
+            <p> <b>Synopsis: </b> <%=oneMovie.synopsis %></p> <br>
+            <p> <b>Released On: </b> <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p> <br>
         </div>
     </div>  
  
-    <div class = "reviewContainer">
+    <div class = "review-container">
         <h2>Add Your Review</h2>
         <% if (user) { %>
             <form action = "/reviews" method = "POST">
                 <label> Rate this movie out of 10: </label> 
-                <input name = "rating" type = "number" />
+                <input name = "rating" type = "number" /><br>
                 <label> Add Your Review: </label>
                 <input name = "comment" type = "text" />
                 <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
-                <input type = "hidden" name = "user" value = "<%=user.id%>"/>
-                <input type = "submit" value = "post review" />
+                <input type = "hidden" name = "user" value = "<%=user.id%>"/> <br>
+                <input type = "submit" value = "Post Your Review" />
             </form>
             <% } %>
     </div>
 
     <div class = "display-reviews">
         <% for (let i = 0; i<reviews.length; i++) { %>
+            <div class="current-review">
             <h3>
-                User name : <%= reviews[i].user.user%>
-                Rating: <%=reviews[i].rating%>
+                User: <%= reviews[i].user.user%>, <br>
+                rated this movie: <%=reviews[i].rating%>/10
             </h3>
             <p><%=reviews[i].comment%></p>
+        </div>
             <% if (!user) { %>
                 <p class = "not-logged-in"> Please log in to make a review.</p>
                 <% } else if (user.user == reviews[i].user.user) {%> 
                     <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
-                    <input type="submit" value="delete review" />
-                    <a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review</a>
+                    <div class="edit-controls">
+                    <input class="show-delete" type="submit" value="Delete Your Review" />
+                    <a class="show-edit" href="/reviews/<%=reviews[i]._id%>/edit">Edit Your Review</a>
                     </form>
+                </div>
                 <%}%>
         <% } %>
     </div>

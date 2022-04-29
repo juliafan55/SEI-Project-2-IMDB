@@ -3,26 +3,26 @@
 <%-include ("partials/head.ejs", { pageName : "Home" })%>
 <body>
     <%-include ("partials/nav.ejs")%>
-    <div class="movieContainer">
-    <h1 class="indexTitle">All Movies</h1>
-    <div class="allMovies">
-        <% for(let i=0; i<movies.length; i++) { %>
-            <% const movie = movies[i] %>
-                <div class="movieGrid">
-                    <img src="<%= movie.poster %>" alt="Poster image" />
-                    <br>
-                    <a class = "title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
-                        <% if(!user) {%>
-                            <p>Login</p>
-                            <%} else if(user.user == movie.user.user) {%>
-                                <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
-                                    <input type="submit" value="Delete Movie"/>
-                                </form>
-                                <a class = "edit" href="/movies/<%=movie._id%>/edit">Edit <%=movie.title%></a>
-                        <%}%>
-                </div>
-        <% } %>
-    </div>
-    </div>
+
+         <h1 class="index-title">All Movies</h1>
+
+            <div class="movies-container">
+                <% for(let i=0; i<movies.length; i++) { %>
+                    <% const movie = movies[i] %>
+                    <div class="info-movie">
+                            <img class="poster-grid" src="<%= movie.poster %>" alt="Poster image" />
+                            <br>
+                            <a class = "movie-title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
+                                <% if(!user) {%>
+                                    <p>Login</p>
+                                    <%} else if(user.user == movie.user.user) {%>
+                                        <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
+                                            <input type="submit" value="Delete <%=movie.title%>"/>
+                                        </form>
+                                        <a class = "edit" href="/movies/<%=movie._id%>/edit">Edit <%=movie.title%></a>
+                                <%}%>
+                        </div>
+                <% } %>
+        </div>
 </body>
 </html>
