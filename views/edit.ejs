@@ -3,6 +3,7 @@
 <%-include ("partials/head.ejs", { pageName : "Edit Movie" })%>
 <body>
     <%-include ("partials/nav.ejs")%>
+    <div class="edit-movie-container">
     <h1>Edit <%=movie.title%></h1>
     <form action = "/movies/<%=movie._id%>?_method=PUT" method = "POST">
         <div>
@@ -35,5 +36,6 @@
         </div>
         <input type="submit" value="Edit <%=movie.title%>">
     </form>
+</div>
 </body>
 </html>

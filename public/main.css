@@ -194,3 +194,46 @@ img.poster-grid {
   align-items: center;
   justify-content: center;
 }
+
+/* edit movie page */
+.edit-movie-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+/* login page styling */
+.login-title {
+  padding: 5px;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login-submit {
+  margin: 5px;
+}
+
+.field {
+  padding: 5px;
+}
+
+/* register page styling */
+.register-title {
+  padding: 5px;
+}
+
+.register-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
