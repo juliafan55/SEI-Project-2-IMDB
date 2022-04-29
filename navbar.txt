@@ -5,3 +5,12 @@
       <a href="/movies/new">Create Movie | </a>
       <a href = "/logout">Logout</a>   
     </div>
+
+              <% if (user.user == reviews[i].user.user) { %>
+            <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
+            <input type="submit" value="delete review" />
+            <a href="/reviews/<%=reviews[i]._id%>/edit">Edit Review</a>
+            </form>
+            <% } else if (user.user == undefined) {%> 
+                <p class = "not-logged-in"> Please log in to make a review.</p>
+                <%}%>
