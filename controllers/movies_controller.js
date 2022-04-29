@@ -7,7 +7,7 @@ const db = require('../models')
 //created a "/movies" route which will display movies
 router.get('/', async (req, res, next) => {
     try {
-        const movies = await db.Movie.find({})
+        const movies = await db.Movie.find({movie: req.params.id}).populate("user")
         const context = { movies }
         return res.render("index.ejs", context)
     } catch (error) {

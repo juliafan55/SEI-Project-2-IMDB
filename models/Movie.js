@@ -37,6 +37,10 @@ const movieSchema = new mongoose.Schema({
         max: 2030,
         required: [true, "Release year cannot be empty"]
     },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    },
 })
 
 
