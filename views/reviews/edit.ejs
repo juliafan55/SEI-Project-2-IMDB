@@ -8,13 +8,15 @@
     <div class = "reviews">
         <h2>Edit your comment</h2>
         <form action = "/reviews/<%=comment._id%>?_method=PUT" method = "POST">
+            <div class="review-form">
             <label for="rating"> Rating: </label>
-            <input name = "rating" type = "number" />
+            <input id="rating" name = "rating" type = "number" /> <br>
 
             <label for="comment"> Comment: </label>
-            <input name = "comment" type = "text" />
+            <input id="comment" name = "comment" type = "text" /> <br>
             <input type = "hidden" name = "movie" />
-            <input type = "submit" value = "Confirm edit" />
+        </div>
+            <input class="confirm-edit" type = "submit" value = "Confirm edit" />
         </form>
 </body>
 </html>
