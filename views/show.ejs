@@ -12,9 +12,13 @@
             <p> Released On: <%=oneMovie.releaseDate %>/<%=oneMovie.releaseMonth%>/<%=oneMovie.releaseYear%></p> <br>
         </div>
     </div>
-    
+    <% if (!user) { %>
+        <p class = "not-logged-in"> Please log in to make edits</p>
+        <% } else if (user.user == user.user) {%> 
+            <a class = "edit" href="/movies/<%=oneMovie._id%>/edit">Edit <%=oneMovie.title%></a>
+        <%}%>    
  
-        <a class = "edit" href="/movies/<%=oneMovie._id%>/edit">Edit <%=oneMovie.title%></a>
+
 
     <div class = "reviewContainer">
         <h2>Add Your Review</h2>

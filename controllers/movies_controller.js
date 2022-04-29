@@ -7,8 +7,9 @@ const db = require('../models')
 //created a "/movies" route which will display movies
 router.get('/', async (req, res, next) => {
     try {
-        const movies = await db.Movie.find({movie: req.params.id}).populate("user")
+        const movies = await db.Movie.find({}).populate("user")
         const context = { movies }
+        console.log(movies)
         return res.render("index.ejs", context)
     } catch (error) {
         console.log(error)
@@ -26,6 +27,7 @@ router.get('/new', (req, res) => {
 router.post('/', async (req, res, next)=>{
     try{
         const newMovie = await db.Movie.create(req.body);
+        console.log(newMovie)
         // console.log(`the new movie is ${newMovie}`)
         return res.redirect('/movies')
     } catch (error) {
@@ -39,6 +41,7 @@ router.get("/:id", async (req, res, next) => {
     try {
         const foundMovie = await db.Movie.findById(req.params.id)
         const allReviews = await db.Review.find({ movie: req.params.id }).populate("user")
+        // console.log(allReviews)
         const context = {
             oneMovie: foundMovie,
             reviews: allReviews,

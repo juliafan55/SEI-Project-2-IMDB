@@ -33,6 +33,10 @@
             <label for = "releaseYear">Release Year:</label>
             <input id = "releaseYear" name = "releaseYear" type = "number"/>
         </div>
+        <div>
+            <%console.log(user)%>
+            <input id = "user" type='hidden' name = 'user' value = "<%=user.id%>" />
+        </div>
         <input type="submit" value="Create new Movie">
     </form>
 </body>
