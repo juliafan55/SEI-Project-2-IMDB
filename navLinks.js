@@ -1,7 +1,6 @@
 const routes = [
     { href: '/movies', title: "Movies | "},
     { href: "/movies/new", title: "New Movie | " },
-    { href: "/reviews", title: "Reviews | " },
     { href: "/logout", title: "Logout" },
     
 ];
