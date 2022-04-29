@@ -12,10 +12,13 @@
                     <img src="<%= movie.poster %>" alt="Poster image" />
                     <br>
                     <a class = "title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
-                
-                            <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
-                                <input type="submit" value="Delete Movie"/>
-                            </form>
+                        <% if(!user) {%>
+                            <p>Login</p>
+                            <%} else if(user.user == movie.user.user) {%>
+                                <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
+                                    <input type="submit" value="Delete Movie"/>
+                                </form>
+                        <%}%>
                 </div>
         <% } %>
     </div>
