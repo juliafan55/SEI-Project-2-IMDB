@@ -18,7 +18,7 @@
                                 <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   
                                     <input type="submit" value="Delete Movie"/>
                                 </form>
-                                <a class = "edit" href="/movies/<%=movie._id%>/edit">Edit <%=oneMovie.title%></a>
+                                <a class = "edit" href="/movies/<%=movie._id%>/edit">Edit <%=movie.title%></a>
                         <%}%>
                 </div>
         <% } %>
