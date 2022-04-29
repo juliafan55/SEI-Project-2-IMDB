@@ -38,7 +38,7 @@
                 Rating: <%=reviews[i].rating%>
             </h3>
             <p><%=reviews[i].comment%></p>
-            <% if (user.user == undefined) { %>
+            <% if (!user) { %>
                 <p class = "not-logged-in"> Please log in to make a review.</p>
                 <% } else if (user.user == reviews[i].user.user) {%> 
                     <form method = "POST" action = "/reviews/<%=reviews[i]._id%>?_method=DELETE">
