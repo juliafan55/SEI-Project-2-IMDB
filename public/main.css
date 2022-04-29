@@ -171,6 +171,10 @@ img.poster-grid {
   margin: 5px;
 }
 
+.not-logged-in {
+  padding-left: 15px;
+}
+
 /* edit review page */
 .reviews {
   display: flex;
