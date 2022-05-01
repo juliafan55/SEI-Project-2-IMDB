@@ -1,7 +1,10 @@
+//require express
 const express = require('express')
 
+//require router to use router. i/o app.
 const router = express.Router()
 
+//require models
 const db = require('../models')
 
 //created a "/movies" route which will display movies

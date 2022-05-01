@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <%-include ("partials/head.ejs", { pageName : "Movie Page" })%>
+
 <body>
     <%-include ("partials/nav.ejs")%>
+
+    <!-- shows movie information -->
     <div class="show-container">
         <h1 class="show-title"> <%=oneMovie.title%></h1>
         <img class="show-img" src="<%=oneMovie.poster%>" alt="<%=oneMovie.title%>" />
@@ -13,13 +16,14 @@
         </div>
     </div>  
  
+    <!-- shows if user would like to leave a review if they're logged in > if not logged in field is not available -->
     <div class = "review-container">
-        <h2>Add Your Review</h2>
+        <h2>Reviews for this Movie!</h2>
         <% if (user) { %>
             <form action = "/reviews" method = "POST">
                 <label> Rate this movie out of 10: </label> 
                 <input name = "rating" type = "number" /><br>
-                <label> Add Your Review: </label>
+                <label> Leave Your Review: </label>
                 <input name = "comment" type = "text" />
                 <input type = "hidden" name = "movie" value = "<%=oneMovie._id%>"/>
                 <input type = "hidden" name = "user" value = "<%=user.id%>"/> <br>
@@ -28,6 +32,7 @@
             <% } %>
     </div>
 
+    <!-- display reviews that are currently available -->
     <div class = "display-reviews">
         <% for (let i = 0; i<reviews.length; i++) { %>
             <div class="current-review">
@@ -36,7 +41,10 @@
                 rated this movie: <%=reviews[i].rating%>/10
             </h3>
             <p><%=reviews[i].comment%></p>
-        </div>
+            </div>
+
+            <!-- if user is not logged in > cannot leave review
+            if user is logged in > can leave review, make edits to a review and delete it. -->
             <% if (!user) { %>
                 <p class = "not-logged-in"> Please log in to make a review.</p>
                 <% } else if (user.user == reviews[i].user.user) {%> 
@@ -45,10 +53,9 @@
                     <input class="show-delete" type="submit" value="Delete Your Review" />
                     <a class="show-edit" href="/reviews/<%=reviews[i]._id%>/edit">Edit Your Review</a>
                     </form>
-                </div>
+    </div>
                 <%}%>
         <% } %>
-    </div>
 
 </body>
 </html>

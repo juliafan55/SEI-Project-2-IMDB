@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <%-include ("partials/head.ejs", { pageName : "Home" })%>
+
 <body>
+
     <%-include ("partials/nav.ejs")%>
 
     <h1 class="index-title">All Movies</h1>
 
+    <!-- loop that goes over movies in the database and displays it -->
     <div class="movies-container">
         <% for(let i=0; i<movies.length; i++) { %>
             <% const movie = movies[i] %>
@@ -14,6 +17,7 @@
                 <br>
                 <a class = "movie-title" href="/movies/<%=movie._id%>"><%=movie.title%></a>
 
+                <!-- make delete and edit buttons only available if user who created the movie is logged in -->
                     <% if(!user) {%>
                         <%} else if(user.user == movie.user.user) {%>
                             <form method="POST" action="/movies/<%= movie._id %>?_method=DELETE">   

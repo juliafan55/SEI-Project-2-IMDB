@@ -1,30 +1,31 @@
+//require express
 const express = require('express')
-
 const app = express();
 
+//for user auth
 const session = require ("express-session");
-
 const MongoStore = require ("connect-mongo");
-
-const controllers = require('./controllers')
-
 const navLinks = require('./navLinks');
 
+//require controllers
+const controllers = require('./controllers')
+
+//connect to database
 require('./config/db.connection');
 
+//require to use delete and put
 const methodOverride = require('method-override')
 
+//const for port
 const PORT = 3000;
 
+//middleware
 app.set('view engine', 'ejs')
-
 app.use(express.static('public'))
-
 app.use(methodOverride('_method'))
-
 app.use(express.urlencoded({ extended: false }))
 
-
+//for user auth
 app.use(
     session({
         // where to store the sessions in mongodb
@@ -40,19 +41,21 @@ app.use(
 
 app.use(navLinks)
 
+//for user auth - stores currentUsr under user variable
 app.use(function (req, res, next) {
     res.locals.user = req.session.currentUser;
     next();
   });
 
+//controllers
 app.use('/movies', controllers.movies)
 app.use('/reviews', controllers.reviews)
 app.use("/", controllers.auth)
 
+//redirecting root
 app.get('/', (req, res) => {
     res.redirect('/movies')
 })
 
-
-
+//listen route
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
