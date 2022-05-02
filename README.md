@@ -55,6 +55,9 @@ Show page for a specific movie.
 ![Screen Shot 2022-05-02 at 11 28 38 AM](https://user-images.githubusercontent.com/101526418/166261577-d75f6c8e-780c-46c3-85b8-e8ae5ade7b4c.png)
 
 
+## Challenging code parts
+Getting pages to only have edit and delete buttons if and only if the user who added those movies/reviews is logged in.
+![Screen Shot 2022-05-02 at 11 36 14 AM](https://user-images.githubusercontent.com/101526418/166262705-e440c899-5715-46f7-bd3a-f054cdde4309.png)
 
 
 
