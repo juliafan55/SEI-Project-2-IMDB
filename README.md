@@ -58,7 +58,7 @@ Show page for a specific movie.
 
 
 
-Stretch Goals
+## Stretch Goals
 - Rate each movie based on the review avg.
 - Slideshow of images for movie posters
 - create a many to many relationship for cast (one actor can be in many movies, one movie can have many actors)
