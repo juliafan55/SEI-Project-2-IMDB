@@ -15,24 +15,22 @@ Reverse Engineering IMDB
 
 IMBD clone
 
-Models - Movie, Review
+## Technologies used
+- mongoose
+- nodejs
+- heroku
+- express
+- nodemon
+- bcrypt
+- ejs
+- method-override
+- express sessions
 
-Inside movie model
-Movie
-Name
-Poster
-Cast
-REVIEW (referenced model)
-Director
-Release date
-Synopsis
 
-Inside review model
-Review
-Rating 10/10
-Comment content
 
 ## USER STORIES:
+* Ability to register and login
+* Ability to only delete or edit movies the logged in user has made
 * Ability to add new movies
 * Ability to edit/update the movies
 * Ability to delete movies
@@ -49,10 +47,3 @@ Try API for data
 
 
 
-Review - add reference back to the movie
-
-
-stretch:
-Cast- array of strings or array of refs.
-User - favorites - track fave films
-Try API for data
