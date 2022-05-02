@@ -1,4 +1,10 @@
 # SEI-Project-2-IMDB 
+## App Deployment link
+https://sei-popcorn-time.herokuapp.com/movies
+
+## App Description- PopCorn Time
+This app is based off of IMDB, and is a place for people to post movies and make reviews on those movies. In order to post movies and make reviews, users will have to register an account with a unique username, unique email, and a password which will all be stored on our mongo db. The user's password information is encrypted using b crypt and is not seen by us or stored in our DB. We created one to many relationships between movies and reviews, users and movies, and users and reviews for our schemas. 
+
 ## Pop corn time 
 Reverse Engineering IMDB
 ![movie-theater-popcorn-Thinkstock](https://user-images.githubusercontent.com/100155199/165326015-b9d4eb05-cc9f-440d-8836-2c749a2810e6.jpeg)
