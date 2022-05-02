@@ -114,10 +114,6 @@ img.poster-grid {
   cursor: pointer;
 }
 
-.create-new-button:hover {
-  background-color: green;
-}
-
 /* show page/movie detail page styling */
 .show-container {
   display: flex;
