@@ -1,4 +1,5 @@
 //require express
+const PORT = process.env.PORT || 4000
 const express = require('express')
 const app = express();
 
@@ -17,7 +18,7 @@ require('./config/db.connection');
 const methodOverride = require('method-override')
 
 //const for port
-const PORT = 3000;
+
 
 //middleware
 app.set('view engine', 'ejs')
@@ -58,4 +59,4 @@ app.get('/', (req, res) => {
 })
 
 //listen route
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
+app.listen(process.env.PORT, () => console.log(`Listening on port: ${PORT}`))
