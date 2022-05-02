@@ -54,6 +54,9 @@ Home page (/movies).
 Show page for a specific movie. 
 ![Screen Shot 2022-05-02 at 11 28 38 AM](https://user-images.githubusercontent.com/101526418/166261577-d75f6c8e-780c-46c3-85b8-e8ae5ade7b4c.png)
 
+Phone View. 
+![image](https://user-images.githubusercontent.com/101526418/166263510-50661048-67a6-4ac5-8ff7-585c3d966a28.png)
+
 
 ## Challenging code parts
 Getting pages to only have edit and delete buttons if and only if the user who added those movies/reviews is logged in.
