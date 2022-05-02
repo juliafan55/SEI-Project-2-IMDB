@@ -42,9 +42,16 @@ This app is based off of IMDB, and is a place for people to post movies and make
 
 ## Screenshots of the app
 
+Register Page. 
 ![Screen Shot 2022-05-02 at 11 25 06 AM](https://user-images.githubusercontent.com/101526418/166260993-4188f6f1-e4d3-464f-aeee-7eef12649c92.png)
+
+Login page. 
 ![Screen Shot 2022-05-02 at 11 24 57 AM](https://user-images.githubusercontent.com/101526418/166261009-3ae34541-31e6-4a92-8fd2-b5378dc4eb5a.png)
+
+Home page (/movies). 
 ![Screen Shot 2022-05-02 at 11 25 24 AM](https://user-images.githubusercontent.com/101526418/166261563-ff10fb45-1c4a-4336-ad9e-e407ba54f25d.png)
+
+Show page for a specific movie. 
 ![Screen Shot 2022-05-02 at 11 28 38 AM](https://user-images.githubusercontent.com/101526418/166261577-d75f6c8e-780c-46c3-85b8-e8ae5ade7b4c.png)
 
 
@@ -52,12 +59,12 @@ This app is based off of IMDB, and is a place for people to post movies and make
 
 
 Stretch Goals
-Rate each movie based on the review avg.
-Slideshow of images w/ movie posters
-Cast- array of strings or array of refs.
-User - favorites - track fave films
-Try API for data
-
+- Rate each movie based on the review avg.
+- Slideshow of images for movie posters
+- create a many to many relationship for cast (one actor can be in many movies, one movie can have many actors)
+- An actor page to see which movies an actor starred in
+- User favorites functionality
+- Webscraping for movie info
 
 
 
