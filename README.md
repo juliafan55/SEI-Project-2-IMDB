@@ -3,7 +3,7 @@
 https://sei-popcorn-time.herokuapp.com/movies
 
 ## App Description- PopCorn Time
-This app is based off of IMDB, and is a place for people to post movies and make reviews on those movies. In order to post movies and make reviews, users will have to register an account with a unique username, unique email, and a password which will all be stored on our mongo db. The user's password information is encrypted using b crypt and is not seen by us or stored in our DB. We created one to many relationships between movies and reviews, users and movies, and users and reviews for our schemas. 
+This app is based off of IMDB, and is a place for people to post movies and make reviews on those movies. In order to post movies and make reviews, users will have to register an account with a unique username, unique email, and a password which will all be stored on our mongo db. The user's password information is hashed using b crypt and is not seen by us or stored in our DB. We created one to many relationships between movies and reviews, users and movies, and users and reviews for our schemas. 
 
 ## MVP Goals
 - Make a website where movies are posted with basic details about the movie (director, poster, release date, synopsis)
